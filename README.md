@@ -15,7 +15,7 @@
 #### iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-react-native-liqpay` and add `RNReactNativeLiqpay.xcodeproj`
+2. Go to `node_modules` ➜ `react-native-liqpay` and add `RNReactNativeLiqpay.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNReactNativeLiqpay.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
 
@@ -26,17 +26,17 @@
   - Add `new RNReactNativeLiqpayPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
-  	include ':react-native-react-native-liqpay'
-  	project(':react-native-react-native-liqpay').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-react-native-liqpay/android')
+  	include ':react-native-liqpay'
+  	project(':react-native-liqpay').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-liqpay/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-react-native-liqpay')
+      compile project(':react-native-liqpay')
   	```
 
 ## Usage
 ```javascript
-import RNReactNativeLiqpay from 'react-native-react-native-liqpay';
+import RNReactNativeLiqpay from 'react-native-liqpay';
 
 // TODO: What to do with the module?
 RNReactNativeLiqpay;
