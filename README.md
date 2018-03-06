@@ -1,13 +1,13 @@
 
-# react-native-react-native-liqpay
+# react-native-liqpay
 
 ## Getting started
 
-`$ npm install react-native-react-native-liqpay --save`
+`$ npm install react-native-liqpay --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-react-native-liqpay`
+`$ react-native link react-native-liqpay`
 
 ### Manual installation
 
@@ -33,15 +33,6 @@
   	```
       compile project(':react-native-react-native-liqpay')
   	```
-
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
-
-1. In Visual Studio add the `RNReactNativeLiqpay.sln` in `node_modules/react-native-react-native-liqpay/windows/RNReactNativeLiqpay.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using React.Native.Liqpay.RNReactNativeLiqpay;` to the usings at the top of the file
-  - Add `new RNReactNativeLiqpayPackage()` to the `List<IReactPackage>` returned by the `Packages` method
-
 
 ## Usage
 ```javascript
