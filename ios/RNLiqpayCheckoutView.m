@@ -17,12 +17,9 @@
     LiqpayMob *_liqpayObject;
 }
 
-RCT_NOT_IMPLEMENTED(- (instancetype)initWithFrame:(CGRect)frame)
-RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:coder)
-
-- (instancetype)initWithBridge:(RCTBridge *)bridge
+- (instancetype)init
 {
-    if ((self = [super initWithFrame:CGRectZero])) {
+    if ((self = [super init])) {
         _liqpayController = [[RNLiqpayController alloc] initWithBridgeView:self];
         _liqpayObject = [[LiqpayMob alloc] initLiqPayWithDelegate:_liqpayController];
         _isPresented = NO;
@@ -70,24 +67,5 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:coder)
         [self dismissModalViewController];
     });
 }
-//
-//- (BOOL)isTransparent
-//{
-//    return _modalViewController.modalPresentationStyle == UIModalPresentationOverFullScreen;
-//}
-//
-//- (BOOL)hasAnimationType
-//{
-//    return ![self.animationType isEqualToString:@"none"];
-//}
-
-//- (void)setTransparent:(BOOL)transparent
-//{
-//    if (self.isTransparent != transparent) {
-//        return;
-//    }
-//
-//    _modalViewController.modalPresentationStyle = transparent ? UIModalPresentationOverFullScreen : UIModalPresentationFullScreen;
-//}
 
 @end

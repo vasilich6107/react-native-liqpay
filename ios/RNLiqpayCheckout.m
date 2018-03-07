@@ -13,7 +13,7 @@ RCT_EXPORT_MODULE()
 
 - (UIView *)view
 {
-    return [[RNLiqpayCheckoutView alloc] initWithBridge:self.bridge];
+    return [[RNLiqpayCheckoutView alloc] init];
 }
 
 RCT_EXPORT_VIEW_PROPERTY(onLiqpaySuccess, RCTBubblingEventBlock)

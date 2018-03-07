@@ -18,7 +18,5 @@
 @property (nonatomic, copy) NSDictionary *params;
 @property (nonatomic, copy) NSString *privateKey;
 
-- (instancetype)initWithBridge:(RCTBridge *)bridge NS_DESIGNATED_INITIALIZER;
-
 @end
 
