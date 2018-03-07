@@ -9,11 +9,12 @@
   "keywords": [
     "react-native"
   ],
-  "author": "",
+  "author": "vasilich6107",
   "license": "",
   "peerDependencies": {
     "react": "^16.2.0",
-    "react-native": "^0.53.0"
+    "react-native": "^0.53.0",
+    "prop-types": "^15.6.0"
   },
   "devDependencies": {
     "babel-eslint": "8.2.1",
