@@ -1,3 +1,5 @@
-import { requireNativeComponent } from 'react-native';
+import LiqpayCheckout from './LiqpayCheckout';
 
-module.exports = requireNativeComponent('RNLiqpayCheckout', null);
+module.exports = {
+  LiqpayCheckout,
+};

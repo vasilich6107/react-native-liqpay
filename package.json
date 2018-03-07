@@ -1,7 +1,6 @@
-
 {
-  "name": "react-native-react-native-liqpay",
-  "version": "1.0.0",
+  "name": "react-native-liqpay",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,7 +12,23 @@
   "author": "",
   "license": "",
   "peerDependencies": {
+    "react": "^16.2.0",
     "react-native": "^0.53.0"
-
+  },
+  "devDependencies": {
+    "babel-eslint": "8.2.1",
+    "babel-jest": "22.2.2",
+    "babel-preset-react-native": "4.0.0",
+    "eslint": "4.18.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-prettier": "2.6.0",
+    "eslint-plugin-react": "7.6.1",
+    "eslint-plugin-react-native": "3.2.1",
+    "jest": "22.3.0",
+    "prettier": "1.10.2",
+    "react-test-renderer": "16.2.0"
   }
 }

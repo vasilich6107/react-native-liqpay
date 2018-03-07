@@ -1,0 +1,24 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": ["error", { "singleQuote": true }],
+    "no-console": 1,
+    "arrow-parens": 0,
+    "arrow-body-style": 1,
+    "function-paren-newline": 0,
+    // React Native has JSX in JS files
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    // React Native includes images via require('../images/example.png')
+    "global-require": 0
+  },
+  "plugins": [
+    "react",
+    "import",
+    "react-native",
+    "prettier"
+  ]
+}

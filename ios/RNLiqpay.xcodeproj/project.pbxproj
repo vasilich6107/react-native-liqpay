@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41527AB120458AAC00D50C8F /* RNLiqpayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41527AB020458A7D00D50C8F /* RNLiqpayView.m */; };
+		41527AB120458AAC00D50C8F /* RNLiqpayCheckoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41527AB020458A7D00D50C8F /* RNLiqpayCheckoutView.m */; };
 		41EE35AB20458E42002E78A4 /* libLiqpayMob_universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EE35A920458E2A002E78A4 /* libLiqpayMob_universal.a */; };
 		41EE35B120458FCA002E78A4 /* RNLiqpayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41EE35B020458FCA002E78A4 /* RNLiqpayController.m */; };
 		B3E7B58A1CC2AC0600A0062D /* RNLiqpayCheckout.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNLiqpayCheckout.m */; };
@@ -27,9 +27,10 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNLiqpay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNLiqpay.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		41527AAF20458A6200D50C8F /* RNLiqpayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNLiqpayView.h; sourceTree = "<group>"; };
-		41527AB020458A7D00D50C8F /* RNLiqpayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNLiqpayView.m; sourceTree = "<group>"; };
+		41527AAF20458A6200D50C8F /* RNLiqpayCheckoutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNLiqpayCheckoutView.h; sourceTree = "<group>"; };
+		41527AB020458A7D00D50C8F /* RNLiqpayCheckoutView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNLiqpayCheckoutView.m; sourceTree = "<group>"; };
 		41527AB220458DD700D50C8F /* Liqpay */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Liqpay; sourceTree = "<group>"; };
+		41A4ECC0205022EF004A863C /* RNLiqpayInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNLiqpayInteractor.h; sourceTree = "<group>"; };
 		41EE35A920458E2A002E78A4 /* libLiqpayMob_universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLiqpayMob_universal.a; path = Liqpay/libLiqpayMob_universal.a; sourceTree = "<group>"; };
 		41EE35AF20458FCA002E78A4 /* RNLiqpayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNLiqpayController.h; sourceTree = "<group>"; };
 		41EE35B020458FCA002E78A4 /* RNLiqpayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNLiqpayController.m; sourceTree = "<group>"; };
@@ -68,11 +69,12 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				41A4ECC0205022EF004A863C /* RNLiqpayInteractor.h */,
 				41527AB220458DD700D50C8F /* Liqpay */,
 				41EE35AF20458FCA002E78A4 /* RNLiqpayController.h */,
 				41EE35B020458FCA002E78A4 /* RNLiqpayController.m */,
-				41527AAF20458A6200D50C8F /* RNLiqpayView.h */,
-				41527AB020458A7D00D50C8F /* RNLiqpayView.m */,
+				41527AAF20458A6200D50C8F /* RNLiqpayCheckoutView.h */,
+				41527AB020458A7D00D50C8F /* RNLiqpayCheckoutView.m */,
 				B3E7B5881CC2AC0600A0062D /* RNLiqpayCheckout.h */,
 				B3E7B5891CC2AC0600A0062D /* RNLiqpayCheckout.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -138,7 +140,7 @@
 			files = (
 				B3E7B58A1CC2AC0600A0062D /* RNLiqpayCheckout.m in Sources */,
 				41EE35B120458FCA002E78A4 /* RNLiqpayController.m in Sources */,
-				41527AB120458AAC00D50C8F /* RNLiqpayView.m in Sources */,
+				41527AB120458AAC00D50C8F /* RNLiqpayCheckoutView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

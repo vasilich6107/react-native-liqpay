@@ -4,10 +4,10 @@
 @implementation RNLiqpayController
 {
     LiqpayMob *_liqpayObject;
-    RNLiqpayView *_bridgeView;
+    id<RNLiqpayInteractor> _bridgeView;
 }
 
-- (instancetype)initWithBridgeView:(RNLiqpayView *)bridgeView
+- (instancetype)initWithBridgeView:(id<RNLiqpayInteractor>)bridgeView
 {
     self = [super init];
     if (self)

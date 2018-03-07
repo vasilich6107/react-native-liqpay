@@ -1,17 +1,10 @@
-//
-//  ViewController.h
-//  LiqPayTest
-//
-//  Created by vasilich on 2/15/18.
-//  Copyright © 2018 vasilich. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 #import "Liqpay/LiqpayMob.h"
-#import "RNLiqpayView.h"
+#import "RNLiqpayCheckoutView.h"
+#import "RNLiqpayInteractor.h"
 
 @interface RNLiqpayController : UIViewController<LiqPayCallBack>
 
-- (instancetype)initWithBridgeView:(RNLiqpayView *)bridgeView;
+- (instancetype)initWithBridgeView:(id<RNLiqpayInteractor>)bridgeView;
 
 @end

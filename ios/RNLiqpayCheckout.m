@@ -1,5 +1,5 @@
 #import "RNLiqpayCheckout.h"
-#import "RNLiqpayView.h"
+#import "RNLiqpayCheckoutView.h"
 #import "RCTModalManager.h"
 #import "RCTShadowView.h"
 #import "RCTUtils.h"
@@ -13,7 +13,7 @@ RCT_EXPORT_MODULE()
 
 - (UIView *)view
 {
-    return [[RNLiqpayView alloc] initWithBridge:self.bridge];
+    return [[RNLiqpayCheckoutView alloc] initWithBridge:self.bridge];
 }
 
 RCT_EXPORT_VIEW_PROPERTY(onLiqpaySuccess, RCTBubblingEventBlock)

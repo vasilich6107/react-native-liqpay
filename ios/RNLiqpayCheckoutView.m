@@ -1,4 +1,4 @@
-#import "RNLiqpayView.h"
+#import "RNLiqpayCheckoutView.h"
 
 #import <UIKit/UIKit.h>
 
@@ -10,7 +10,7 @@
 #import "RCTUtils.h"
 #import "UIView+React.h"
 
-@implementation RNLiqpayView
+@implementation RNLiqpayCheckoutView
 {
     BOOL _isPresented;
     RNLiqpayController *_liqpayController;
