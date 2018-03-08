@@ -51,7 +51,7 @@
                              privateKey:self.privateKey
                                delegate:_liqpayController];
             };
-        } else if ([self.type isEqualToString:@"checkoutWithParamsBase64"]) {
+        } else if ([self.type isEqualToString:@"checkoutBase64"]) {
             completionBlock = ^{
                 [_liqpayObject checkoutWithParamsBase64:self.paramsBase64
                                               signature:self.signature
