@@ -1,7 +1,7 @@
 #import <React/RCTViewManager.h>
 #import <React/RCTConvert.h>
 
-@interface RNLiqpayCheckout : RCTViewManager
+@interface RNLiqpay : RCTViewManager
 
 @end
 

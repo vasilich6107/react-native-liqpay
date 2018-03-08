@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { requireNativeComponent } from 'react-native';
 
-const RNLiqpayCheckout = requireNativeComponent('RNLiqpayCheckout', null);
+const RNLiqpay = requireNativeComponent('RNLiqpay', null);
 
-const LiqpayCheckout = props => <RNLiqpayCheckout {...props} />;
+const LiqpayCheckout = props => <RNLiqpay type="checkout" {...props} />;
 
 LiqpayCheckout.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
