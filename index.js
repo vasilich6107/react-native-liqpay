@@ -3,8 +3,15 @@ import PropTypes from 'prop-types';
 import { requireNativeComponent } from 'react-native';
 
 const RNLiqpay = requireNativeComponent('RNLiqpay', null);
+const style = { 
+  position: 'absolute', 
+  top: 0, 
+  left: 0, 
+  bottom: 0, 
+  right: 0 
+};
 
-const LiqpayCheckout = props => <RNLiqpay type="checkout" {...props} />;
+const LiqpayCheckout = props => <RNLiqpay type="checkout" style={style} {...props} />;
 
 LiqpayCheckout.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
@@ -14,7 +21,7 @@ LiqpayCheckout.propTypes = {
   onLiqpayError: PropTypes.func.isRequired,
 };
 
-const LiqpayCheckoutBase64 = props => <RNLiqpay type="checkoutBase64" {...props} />;
+const LiqpayCheckoutBase64 = props => <RNLiqpay type="checkoutBase64" style={style} {...props} />;
 
 LiqpayCheckoutBase64.propTypes = {
   paramsBase64: PropTypes.string.isRequired,
@@ -23,7 +30,7 @@ LiqpayCheckoutBase64.propTypes = {
   onLiqpayError: PropTypes.func.isRequired,
 };
 
-const LiqpayApi = props => <RNLiqpay type="api" {...props} />;
+const LiqpayApi = props => <RNLiqpay type="api" style={style} {...props} />;
 
 LiqpayApi.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
@@ -34,7 +41,7 @@ LiqpayApi.propTypes = {
   onLiqpayError: PropTypes.func.isRequired,
 };
 
-const LiqpayApiBase64 = props => <RNLiqpay type="apiBase64" {...props} />;
+const LiqpayApiBase64 = props => <RNLiqpay type="apiBase64" style={style} {...props} />;
 
 LiqpayApiBase64.propTypes = {
   path: PropTypes.string.isRequired,
