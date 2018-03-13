@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import ua.privatbank.paylibliqpay.ErrorCode;
 import ua.privatbank.paylibliqpay.LiqPay;
@@ -65,35 +66,39 @@ class RNLiqpayView extends View implements LiqPayCallBack {
   }
 
   @Override
-  public void onResponseSuccess(final String resp) {
+  public void onResponseSuccess(final String response) {
     try {
+      JSONObject responseJSON = new JSONObject(response);
+      JSONObject formattedJSON = new JSONObject();
+
+      formattedJSON.put("data", responseJSON.toString());
+      formattedJSON.put("signature", responseJSON.getString("signature"));
+
       WritableMap event = Arguments.createMap();
-      event.putString("message", "MySuccessMessage");
+      event.putString("response", formattedJSON.toString());
       ReactContext reactContext = (ReactContext)getContext();
       reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
         getId(),
         "liqpaySuccess",
         event);
-
-
-      JSONObject object = new JSONObject(resp);
-      if("success".equals(object.optString("status"))){
-        // успех
-        String cardToken = object.optString("card_token");
-      }else {
-        HashMap<String, String> map = new HashMap<String, String>();
-        // ошибка
-      }
-    }
-    catch (JSONException e) {
-
+    } catch (JSONException e) {
+      this.onResponceError(ErrorCode.io);
     }
   }
 
   @Override
   public void onResponceError(final ErrorCode errorCode) {
+    Map<ErrorCode, String> errorCodeNames = new HashMap<ErrorCode, String>(){{
+      put(ErrorCode.io, "ERROR_CODE_IO");
+      put(ErrorCode.inet_missing, "ERROR_CODE_INET_MISSING");
+      put(ErrorCode.need_non_ui_thread, "ERROR_CODE_UI_THREAD");
+      put(ErrorCode.checkout_canseled, "ERROR_CODE_CHECKOUT_CANCELED");
+      put(ErrorCode.need_permission, "ERROR_CODE_NEED_PERMISSION");
+
+    }};
+
     WritableMap event = Arguments.createMap();
-    event.putString("message", "MyErrorMessage");
+    event.putString("error", errorCodeNames.get(errorCode));
     ReactContext reactContext = (ReactContext)getContext();
     reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
       getId(),

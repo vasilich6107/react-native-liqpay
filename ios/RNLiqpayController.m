@@ -19,11 +19,19 @@
 }
 
 - (void)onResponseSuccess:(NSString *)response {
-    [_bridgeView notifyLiqpaySuccess:(@{@"response": @"Success"})];
+    [_bridgeView notifyLiqpaySuccess:(@{@"response": response})];
 }
 
 - (void)onResponseError:(NSError *)errorCode {
-    [_bridgeView notifyLiqpayError:(@{@"response": @"Error"})];
+    NSDictionary *errorCodeNames = @{
+                                     @(ErrorCodeIO):@"ERROR_CODE_IO",
+                                     @(ErrorCodeInetMissing):@"ERROR_CODE_INET_MISSING",
+                                     @(ErrorCodeNonUIThread):@"ERROR_CODE_NON_UI_THREAD",
+                                     @(ErrorCodeCheckoutCanceled):@"ERROR_CODE_CHECKOUT_CANCELED",
+                                     @(ErrorCodeUIThread):@"ERROR_CODE_IU_THREAD"
+                                     };
+    
+    [_bridgeView notifyLiqpayError:(@{@"error": errorCodeNames[@([errorCode code])]})];
 }
 
 - (UIColor *)getStatusBarColor {
