@@ -48,7 +48,7 @@
 
   ```java
   return Arrays.<ReactPackage>asList(
-    new VectorIconsPackage()
+    new RNLiqpayPackage()
   );
   ```
 
