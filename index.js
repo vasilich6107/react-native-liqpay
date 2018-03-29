@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { requireNativeComponent } from 'react-native';
 
 const RNLiqpay = requireNativeComponent('RNLiqpay', null);
-const style = { 
-  position: 'absolute', 
-  top: 0, 
-  left: 0, 
-  bottom: 0, 
-  right: 0 
+const style = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0
 };
 
 const LiqpayCheckout = props => <RNLiqpay type="checkout" style={style} {...props} />;
