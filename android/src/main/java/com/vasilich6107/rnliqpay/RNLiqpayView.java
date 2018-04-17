@@ -69,13 +69,11 @@ class RNLiqpayView extends View implements LiqPayCallBack {
   public void onResponseSuccess(final String response) {
     try {
       JSONObject responseJSON = new JSONObject(response);
-      JSONObject formattedJSON = new JSONObject();
-
-      formattedJSON.put("data", responseJSON.toString());
-      formattedJSON.put("signature", responseJSON.getString("signature"));
 
       WritableMap event = Arguments.createMap();
-      event.putString("response", formattedJSON.toString());
+      event.putString("data", responseJSON.toString());
+      event.putString("signature", responseJSON.getString("signature"));
+
       ReactContext reactContext = (ReactContext)getContext();
       reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
         getId(),
