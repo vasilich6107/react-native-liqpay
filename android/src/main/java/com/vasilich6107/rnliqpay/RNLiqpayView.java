@@ -27,11 +27,21 @@ class RNLiqpayView extends View implements LiqPayCallBack {
   private String paramsBase64 = null;
   private Boolean isPresented = false;
   private String path;
+  private Map<ErrorCode, String> errorCodeNames;
   private HashMap<String, String> params;
 
   public RNLiqpayView(Context context) {
     super(context);
     this.context = context;
+
+    this.errorCodeNames = new HashMap<ErrorCode, String>() {{
+      put(ErrorCode.io, "ERROR_CODE_IO");
+      put(ErrorCode.inet_missing, "ERROR_CODE_INET_MISSING");
+      put(ErrorCode.need_non_ui_thread, "ERROR_CODE_UI_THREAD");
+      put(ErrorCode.checkout_canseled, "ERROR_CODE_CHECKOUT_CANCELED");
+      put(ErrorCode.need_permission, "ERROR_CODE_NEED_PERMISSION");
+
+    }};
   }
 
   public void setPrivateKey(String privateKey) {
@@ -46,7 +56,7 @@ class RNLiqpayView extends View implements LiqPayCallBack {
   protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
 
-    if(!this.isPresented) {
+    if (!this.isPresented) {
       switch (this.type) {
         case "checkout":
           LiqPay.checkout(context.getApplicationContext(), params, privateKey, this);
@@ -74,33 +84,31 @@ class RNLiqpayView extends View implements LiqPayCallBack {
       event.putString("data", responseJSON.toString());
       event.putString("signature", responseJSON.getString("signature"));
 
-      ReactContext reactContext = (ReactContext)getContext();
-      reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
-        getId(),
-        "liqpaySuccess",
-        event);
+      this.triggerReactEvent("liqpaySuccess", event);
     } catch (JSONException e) {
       this.onResponceError(ErrorCode.io);
+
+      WritableMap event = Arguments.createMap();
+      event.putString("error", this.errorCodeNames.get(ErrorCode.io));
+      event.putString("message", e.getMessage());
+
+      this.triggerReactEvent("liqpayError", event);
     }
   }
 
   @Override
   public void onResponceError(final ErrorCode errorCode) {
-    Map<ErrorCode, String> errorCodeNames = new HashMap<ErrorCode, String>(){{
-      put(ErrorCode.io, "ERROR_CODE_IO");
-      put(ErrorCode.inet_missing, "ERROR_CODE_INET_MISSING");
-      put(ErrorCode.need_non_ui_thread, "ERROR_CODE_UI_THREAD");
-      put(ErrorCode.checkout_canseled, "ERROR_CODE_CHECKOUT_CANCELED");
-      put(ErrorCode.need_permission, "ERROR_CODE_NEED_PERMISSION");
-
-    }};
-
     WritableMap event = Arguments.createMap();
-    event.putString("error", errorCodeNames.get(errorCode));
-    ReactContext reactContext = (ReactContext)getContext();
+    event.putString("error", this.errorCodeNames.get(errorCode));
+
+    this.triggerReactEvent("liqpayError", event);
+  }
+
+  private void triggerReactEvent(String eventName, WritableMap event) {
+    ReactContext reactContext = (ReactContext) getContext();
     reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
       getId(),
-      "liqpayError",
+      eventName,
       event);
   }
 
