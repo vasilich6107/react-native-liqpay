@@ -27,13 +27,17 @@
 }
 
 - (void)onResponseSuccess:(NSString *)response {
-    NSData* data = [response dataUsingEncoding:NSUTF8StringEncoding];
     NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:data
 
+    NSDictionary* responseJSON = [NSJSONSerialization
+                          JSONObjectWithData:[response dataUsingEncoding:NSUTF8StringEncoding]
                           options:kNilOptions
                           error:&error];
+
+    NSDictionary* responseDataJSON = [NSJSONSerialization
+                                  JSONObjectWithData:[responseJSON[@"data"] dataUsingEncoding:NSUTF8StringEncoding]
+                                  options:kNilOptions
+                                  error:&error];
 
     if(error) {
         [_bridgeView notifyLiqpayError:(@{
@@ -41,8 +45,22 @@
                                           @"message": [error localizedDescription]
                                         })];
     }
+    else if([responseDataJSON[@"status"] isEqualToString:@"failure"]) {
+        if([responseDataJSON[@"err_code"] isEqualToString:@"cancel"]) {
+            [_bridgeView notifyLiqpayError:(@{
+                                              @"error": errorCodeNames[@(ErrorCodeCheckoutCanceled)],
+                                              @"message": responseDataJSON[@"err_description"]
+                                              })];
+        }
+        else {
+            [_bridgeView notifyLiqpayError:(@{
+                                              @"error": responseDataJSON[@"err_code"],
+                                              @"message": responseDataJSON[@"err_description"]
+                                              })];
+        }
+    }
     else {
-        [_bridgeView notifyLiqpaySuccess:(json)];
+        [_bridgeView notifyLiqpaySuccess:(responseJSON)];
     }
 
 

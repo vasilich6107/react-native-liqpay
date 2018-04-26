@@ -9,20 +9,24 @@ import com.facebook.react.uimanager.annotations.ReactProp;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.Nullable;
+
 public class RNLiqpayManager extends SimpleViewManager<RNLiqpayView> {
-  public Map getExportedCustomBubblingEventTypeConstants() {
-    return MapBuilder.builder()
-      .put(
+  @Nullable
+  @Override
+  public Map<String, Object> getExportedCustomBubblingEventTypeConstants() {
+    return new HashMap<String, Object>() {{
+      put(
         "liqpaySuccess",
         MapBuilder.of(
           "phasedRegistrationNames",
-          MapBuilder.of("bubbled", "onLiqpaySuccess")))
-      .put(
+          MapBuilder.of("bubbled", "onLiqpaySuccess")));
+      put(
         "liqpayError",
         MapBuilder.of(
           "phasedRegistrationNames",
-          MapBuilder.of("bubbled", "onLiqpayError")))
-      .build();
+          MapBuilder.of("bubbled", "onLiqpayError")));
+    }};
   }
 
   @Override
@@ -59,9 +63,7 @@ public class RNLiqpayManager extends SimpleViewManager<RNLiqpayView> {
   public void setPath(RNLiqpayView view, ReadableMap params) {
     HashMap<String, String> map = new HashMap<>();
     for (HashMap.Entry<String, Object> entry : params.toHashMap().entrySet()) {
-      if (entry.getValue() instanceof String) {
-        map.put(entry.getKey(), (String) entry.getValue());
-      }
+      map.put(entry.getKey(), String.valueOf(entry.getValue()));
     }
     view.setParams(map);
   }
