@@ -65,6 +65,22 @@
         }
     }
   ```
+7. Request permissions
+  ```javascript
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE);
+
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          // open liqpay
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    } else {
+      // open liqpay
+    }
+  ```  
 
 ## Usage
 
