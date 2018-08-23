@@ -51,6 +51,20 @@
     new RNLiqpayPackage()
   );
   ```
+  
+6. To avoid problems with compile SDK version insert following inside `android/buid.gradle`
+  ```
+    subprojects {
+        afterEvaluate {
+            project -> if (project.hasProperty("android")) {
+                android {
+                    compileSdkVersion rootProject.ext.compileSdkVersion
+                    buildToolsVersion rootProject.ext.buildToolsVersion
+                }
+            }
+        }
+    }
+  ```
 
 ## Usage
 
