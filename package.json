@@ -1,6 +1,6 @@
 {
   "name": "react-native-liqpay",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "description": "React native wrapper for Liqpay mobile API",
   "main": "index.js",
   "scripts": {
