@@ -76,11 +76,11 @@ class RNLiqpayView extends View implements LiqPayCallBack {
   }
 
   @Override
-  public void onResponseSuccess(final String response) {
+  public void onResponseSuccess(final String data, final String signature) {
     WritableMap event = Arguments.createMap();
 
     try {
-      JSONObject responseJSON = new JSONObject(response);
+      JSONObject responseJSON = new JSONObject(data);
 
       if("failure".equals(responseJSON.optString("status"))) {
         if("cancel".equals(responseJSON.optString("err_code"))) {
@@ -94,8 +94,8 @@ class RNLiqpayView extends View implements LiqPayCallBack {
         this.triggerReactEvent("liqpayError", event);
       }
       else {
-        event.putString("data", responseJSON.toString());
-        event.putString("signature", responseJSON.getString("signature"));
+        event.putString("data", data);
+        event.putString("signature", signature);
 
         this.triggerReactEvent("liqpaySuccess", event);
       }
