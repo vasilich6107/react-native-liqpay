@@ -4,7 +4,6 @@
 
 ```bash
 npm install github:oxyii/react-native-liqpay --save
-```
 
 ### Mostly automatic installation (RN >= 0.60)
 
@@ -189,3 +188,5 @@ _todo_
 ### LiqpayApiBase64
 
 _todo_
+
+<a href="https://www.buymeacoffee.com/UqrT9HA" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
