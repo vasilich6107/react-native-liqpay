@@ -1,24 +1,25 @@
 
 Pod::Spec.new do |s|
-  s.name         = "RNReactNativeLiqpay"
+  s.name         = "RNLiqpay"
   s.version      = "1.0.0"
-  s.summary      = "RNReactNativeLiqpay"
+  s.summary      = "RNLiqpay"
   s.description  = <<-DESC
-                  RNReactNativeLiqpay
+                  RNLiqpay
                    DESC
-  s.homepage     = ""
+  s.homepage     = "http://facebook.github.io/react-native/"
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "author@domain.cn" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/author/RNReactNativeLiqpay.git", :tag => "master" }
-  s.source_files  = "RNReactNativeLiqpay/**/*.{h,m}"
+  s.source_files  = "**/*.{h,m}"
   s.requires_arc = true
 
 
   s.dependency "React"
   #s.dependency "others"
 
+  s.ios.vendored_library = "Liqpay/libLiqpayMob_universal.a"
 end
 
   

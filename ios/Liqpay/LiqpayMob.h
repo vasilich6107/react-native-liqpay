@@ -11,10 +11,10 @@
 typedef NS_ENUM( NSUInteger, ErrorCode ) {
     ErrorCodeIO,          // -  I/O exception while sending request to server
     ErrorCodeInetMissing, // Operation is not possible, because there is no
-                          // Internet connection
+    // Internet connection
     ErrorCodeNonUIThread, // You need to call method in NON UI thread
     ErrorCodeCheckoutCanceled, // Checkout is canceled without waiting for
-                               // confirmation
+    // confirmation
     ErrorCodeUIThread, // You need to call method in UI thread
 };
 
@@ -66,9 +66,9 @@ typedef NS_ENUM( NSUInteger, ErrorCode ) {
  * is recived or when error .
  */
 - (void)api:(NSString *)path
-    paramsBase64:(NSString *)paramsBase64
-       signature:(NSString *)signature
-        delegate:(id<LiqPayCallBack>)delegate;
+paramsBase64:(NSString *)paramsBase64
+  signature:(NSString *)signature
+   delegate:(id<LiqPayCallBack>)delegate;
 
 /**
  * Receiving payments on a personal checkout Liqpay client->server in WebView.
