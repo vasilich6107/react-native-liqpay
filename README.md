@@ -12,7 +12,7 @@ npm install github:oxyii/react-native-liqpay --save
 cd ios && pod install
 ```
 
-That's all! Ready for use.
+That's all! Ready for use on iOS and Android.
 
 ### Mostly automatic installation (RN < 0.60)
 
