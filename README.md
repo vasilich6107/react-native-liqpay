@@ -93,6 +93,8 @@ That's all! Ready for use.
 
 ### Checkout
 
+**Note** Please don't forget that we work in a client environment. So it's **very very** bad pratice to store and use private key in app. You must make data and signature on your backend env. Then you can use [LiqpayCheckoutBase64](#liqpaycheckoutbase64) to make request.
+
 <img src="screenshot_android.png" alt="screenshot" width="300" /> <img src="screenshot_ios.png" alt="screenshot" width="300" />
 
 Get the API keys here:
@@ -154,7 +156,23 @@ class Checkout extends React.Component {
 
 ### LiqpayCheckoutBase64
 
-_todo_
+```jsx
+import { LiqpayCheckoutBase64 } from 'react-native-liqpay';
+// About data and signature https://www.liqpay.ua/documentation/data_signature
+// Signature calculator https://www.liqpay.ua/documentation/forming_test_data/
+... <render>
+    <LiqpayCheckoutBase64
+      signature="sig"
+      paramsBase64="base64encodedJSONobject"
+      onLiqpaySuccess={res => {
+        console.log(res);
+      }}
+      onLiqpayError={error => {
+        console.log(error);
+      }}
+    />
+...
+```
 
 ### LiqpayApi
 
