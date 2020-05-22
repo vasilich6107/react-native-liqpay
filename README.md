@@ -2,13 +2,20 @@
 
 ## Getting started
 
-`$ npm install react-native-liqpay --save`
+```bash
+npm install github:oxyii/react-native-liqpay --save
+cd ios && pod install
+```
 
-### Mostly automatic installation
+### Mostly automatic installation (RN >= 0.60)
+
+That's all! Ready for use.
+
+### Mostly automatic installation (RN < 0.60)
 
 `$ react-native link react-native-liqpay`
 
-### Manual installation
+### Manual installation (RN < 0.60)
 
 #### iOS
 
