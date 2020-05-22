@@ -3,7 +3,7 @@
 ## Getting started
 
 ```bash
-npm install github:oxyii/react-native-liqpay --save
+npm install react-native-liqpay --save
 cd ios && pod install
 ```
 
@@ -186,3 +186,5 @@ _todo_
 ### LiqpayApiBase64
 
 _todo_
+
+<a href="https://www.buymeacoffee.com/UqrT9HA" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
