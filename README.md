@@ -15,6 +15,8 @@ That's all! Ready for use.
 
 `$ react-native link react-native-liqpay`
 
+---
+
 <details>
   <summary>Manual installation</summary>
 
