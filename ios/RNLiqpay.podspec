@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
   s.dependency "React"
   #s.dependency "others"
 
+  s.ios.vendored_library = "Liqpay/libLiqpayMob_universal.a"
 end
 
   
