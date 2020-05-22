@@ -3,7 +3,8 @@
 ## Getting started
 
 ```bash
-npm install github:oxyii/react-native-liqpay --save
+npm install react-native-liqpay --save
+```
 
 ### Mostly automatic installation (RN >= 0.60)
 
