@@ -15,7 +15,8 @@ That's all! Ready for use.
 
 `$ react-native link react-native-liqpay`
 
-### Manual installation (RN < 0.60)
+<details>
+  <summary>Manual installation</summary>
 
 #### iOS
 
@@ -88,6 +89,8 @@ That's all! Ready for use.
       // open liqpay
     }
   ```  
+
+</details>
 
 ## Usage
 
