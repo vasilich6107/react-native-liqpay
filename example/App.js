@@ -7,11 +7,18 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, Button, StyleSheet, Text, View, PermissionsAndroid} from 'react-native';
-import { LiqpayCheckout } from 'react-native-liqpay';
+import {
+  Platform,
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  PermissionsAndroid,
+} from 'react-native';
+import {LiqpayCheckout} from 'react-native-liqpay';
 
-const LIQPAY_PUBLIC_KEY = '';
-const LIQPAY_PRIVATE_KEY = '';
+const LIQPAY_PUBLIC_KEY = 'i78206020604';
+const LIQPAY_PRIVATE_KEY = 'EN7bkMx1q9MgLmyeRX2RdQobXbm8hqklGkhO9QPH';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -26,13 +33,15 @@ export default class App extends Component<Props> {
   };
 
   state = {
-    liqpay: false
+    liqpay: false,
   };
 
   handlePress = async () => {
     if (Platform.OS === 'android') {
       try {
-        const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE);
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE,
+        );
 
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
           this.setState({
@@ -44,48 +53,49 @@ export default class App extends Component<Props> {
       }
     } else {
       this.setState({
-        liqpay: true
-      })
+        liqpay: true,
+      });
     }
-
   };
 
   handleSuccess = (event) => {
     console.log(event.nativeEvent);
     this.setState({
-      liqpay: false
-    })
+      liqpay: false,
+    });
   };
 
   handleError = (event) => {
     console.log(event.nativeEvent);
     this.setState({
-      liqpay: false
-    })
+      liqpay: false,
+    });
   };
-
-
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to Liqpay example!</Text>
         <Text style={styles.instructions}>
-          To get started, specify LIQPAY_PUBLIC_KEY and LIQPAY_PRIVATE_KEY in App.js
+          To get started, specify LIQPAY_PUBLIC_KEY and LIQPAY_PRIVATE_KEY in
+          App.js
         </Text>
-        <Text style={styles.instructions}>Press "Pay with Liqpay" button to make a test payment.</Text>
+        <Text style={styles.instructions}>
+          Press "Pay with Liqpay" button to make a test payment.
+        </Text>
         <Button
           onPress={this.handlePress}
           title="Pay with Liqpay"
           color="#841584"
         />
-        {
-          this.state.liqpay && <LiqpayCheckout
+        {this.state.liqpay && (
+          <LiqpayCheckout
             privateKey={LIQPAY_PRIVATE_KEY}
             onLiqpayError={this.handleError}
             onLiqpaySuccess={this.handleSuccess}
-            params={this.params} />
-        }
+            params={this.params}
+          />
+        )}
       </View>
     );
   }
