@@ -1,5 +1,7 @@
 # react-native-liqpay
 
+## :mega: This library is not actively maintained anymore. Feel free to create PRs with fixes I'll merge and update `npm` version
+
 ## Getting started
 
 ```bash
