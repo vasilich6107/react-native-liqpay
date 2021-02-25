@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ua.privatbank.paylibliqpay.ErrorCode;
-import ua.privatbank.paylibliqpay.LiqPay;
+import com.vasilich6107.rnliqpay.LiqPay;
 import ua.privatbank.paylibliqpay.LiqPayCallBack;
 
 class RNLiqpayView extends View implements LiqPayCallBack {
